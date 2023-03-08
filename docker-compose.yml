@@ -1,4 +1,12 @@
 services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    command: npx ts-node /app/src/index.ts
+    volumes:
+      - .:/app
+    tty: true
   db:
     image: postgres:latest
     environment:
